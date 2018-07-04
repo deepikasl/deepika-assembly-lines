@@ -125,7 +125,7 @@ jobs:
   - name: deeps-runSh-8
     type: runSh
     steps:
-      - IN: deeps-release-8
+      - IN: deeps-release-5
       - TASK:
         - script: echo "eighth runsh job"
   
