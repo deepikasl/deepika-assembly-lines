@@ -1,0 +1,391 @@
+build:
+  ci:
+    - echo "deepika-assembly-lines"
+    
+ jobs:
+  - name: deeps-manfst-1
+    type: manifest
+    steps:
+      - IN: deeps-image-1
+        pull: false
+ 
+ - name: deeps-manfst-2
+    type: manifest
+    steps:
+      - IN: deeps-image-1
+      - IN: deeps-image-2
+        pull: false
+ 
+ - name: deeps-runSh-1
+    type: runSh
+    steps:
+      - IN: deeps-manfst-1
+      - IN: deeps-manfst-2
+      - TASK:
+        - script: echo "first runsh job"
+  
+  - name: deeps-manfst-3
+    type: manifest
+    steps:
+      - IN: deeps-runSh-1
+      - IN: deeps-image-3
+        pull: false
+  
+  - name: deeps-manfst-4
+    type: manifest
+    steps:
+      - IN: deeps-runSh-1
+      - IN: deeps-image-4
+        pull: false
+
+  - name: deeps-runSh-2
+    type: runSh
+    steps:
+      - IN: deeps-manfst-3
+      - IN: deeps-manfst-4
+      - TASK:
+        - script: echo "second runsh job"
+  
+  - name: deeps-runSh-3
+    type: runSh
+    steps:
+      - IN: deeps-runSh-1
+      - IN: deeps-runSh-2
+      - TASK:
+        - script: echo "third runsh job"
+  
+  - name: deeps-release-1
+    type: release
+    steps:
+      - IN: deeps-runSh-1
+      - IN: deeps-version-1
+      - TASK: managed
+        bump: major
+  
+  - name: deeps-release-2
+    type: release
+    steps:
+      - IN: deeps-runSh-2
+      - IN: deeps-version-2
+      - TASK: managed
+        bump: major
+  
+  - name: deeps-release-3
+    type: release
+    steps:
+      - IN: deeps-runSh-3
+      - IN: deeps-version-3
+      - TASK: managed
+        bump: major
+        
+  - name: deeps-release-4
+    type: release
+    steps:
+      - IN: deeps-manfst-4
+      - IN: deeps-version-4
+      - TASK: managed
+        bump: major
+        
+  - name: deeps-release-5
+    type: release
+    steps:
+      - IN: deeps-manfst-3
+      - IN: deeps-version-5
+      - TASK: managed
+        bump: major
+        
+  - name: deeps-runSh-4
+    type: runSh
+    steps:
+      - IN: deeps-release-1
+      - TASK:
+        - script: echo "forth runsh job"
+  
+  - name: deeps-runSh-5
+    type: runSh
+    steps:
+      - IN: deeps-release-2
+      - TASK:
+        - script: echo "fifth runsh job"
+        
+  - name: deeps-runSh-6
+    type: runSh
+    steps:
+      - IN: deeps-release-3
+      - TASK:
+        - script: echo "sixth runsh job"
+        
+  - name: deeps-runSh-7
+    type: runSh
+    steps:
+      - IN: deeps-release-4
+      - TASK:
+        - script: echo "seventh runsh job"
+  
+  - name: deeps-runSh-8
+    type: runSh
+    steps:
+      - IN: deeps-release-8
+      - TASK:
+        - script: echo "eighth runsh job"
+  
+  - name: deeps-runSh-9
+    type: runSh
+    steps:
+      - IN: deeps-runSh-4
+      - IN: deeps-gitRepo-1
+      - TASK:
+        - script: echo "ninth runsh job"
+  
+  - name: deeps-runSh-10
+    type: runSh
+    steps:
+      - IN: deeps-runSh-5
+      - IN: deeps-gitRepo-2
+      - TASK:
+        - script: echo "tenth runsh job"
+  
+  - name: deeps-runSh-11
+    type: runSh
+    steps:
+      - IN: deeps-runSh-6
+      - IN: deeps-gitRepo-3
+      - TASK:
+        - script: echo "eleventh runsh job"
+  
+  - name: deeps-runSh-12
+    type: runSh
+    steps:
+      - IN: deeps-runSh-7
+      - IN: deeps-gitRepo-4
+      - TASK:
+        - script: echo "twelfth runsh job"
+
+  - name: deeps-runSh-13
+    type: runSh
+    steps:
+      - IN: deeps-runSh-8
+      - IN: deeps-gitRepo-5
+      - TASK:
+        - script: echo "thirteenth runsh job"
+  
+  - name: deeps-runSh-14
+    type: runSh
+    steps:
+      - IN: deeps-runSh-9
+      - IN: deeps-params-1
+      - TASK:
+        - script: echo "forteenth runsh job"
+  
+  - name: deeps-runSh-15
+    type: runSh
+    steps:
+      - IN: deeps-runSh-10
+      - IN: deeps-params-2
+      - TASK:
+        - script: echo "fifteenth runsh job"
+        
+  - name: deeps-runSh-16
+    type: runSh
+    steps:
+      - IN: deeps-runSh-11
+      - IN: deeps-dockerOptions-1
+      - TASK:
+        - script: echo "sixteenth runsh job"
+  
+  - name: deeps-runSh-17
+    type: runSh
+    steps:
+      - IN: deeps-runSh-12
+      - IN: deeps-dockerOptions-2
+      - TASK:
+        - script: echo "seventeenth runsh job"
+        
+  - name: deeps-runSh-18
+    type: runSh
+    steps:
+      - IN: deeps-runSh-13
+      - IN: deeps-dockerOptions-3
+      - TASK:
+        - script: echo "eighteenth runsh job"
+        
+  - name: deeps-runSh-19
+    type: runSh
+    steps:
+      - IN: deeps-runSh-14
+      - IN: deeps-ssh
+      - TASK:
+        - script: echo "ninteenth runsh job"
+        
+  - name: deeps-runSh-20
+    type: runSh
+    steps:
+      - IN: deeps-runSh-15
+      - IN: deeps-runSh-16
+      - IN: deeps-runSh-17
+      - IN: deeps-runSh-18
+      - IN: deeps-runSh-19
+      - TASK:
+        - script: echo "twenty runsh job"
+  
+ resources:
+  - name: deeps-image-1
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+      
+  - name: deeps-image-2
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+   
+  - name: deeps-image-3
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+      
+  - name: deeps-image-4
+    type: image
+    integration: deepika-docker
+    pointer:
+      sourceName: "library/nginx"
+    seed:
+      versionName: latest
+  
+  - name: deeps-version-1
+    type: version
+    seed:
+      versionName: "0.0.1-rc"
+  
+  - name: deeps-version-2
+    type: version
+    seed:
+      versionName: "0.0.2-rc"
+  
+  - name: deeps-version-3
+    type: version
+    seed:
+      versionName: "0.0.3-rc"
+  
+  - name: deeps-version-4
+    type: version
+    seed:
+      versionName: "0.0.4-rc"
+  
+  - name: deeps-version-5
+    type: version
+    seed:
+      versionName: "0.0.5-rc"
+      
+  - name: deeps-gitRepo-1
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/gitRepo-project-1"
+      branches:
+        only:
+          - master
+      buildOnPullRequestClose: true
+      buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
+   
+  - name: deeps-gitRepo-2
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/gitRepo-project-2"
+      branches:
+        only:
+          - master
+      buildOnPullRequestClose: true
+      buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
+      
+  - name: deeps-gitRepo-3
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/gitRepo-project-3"
+      branches:
+        only:
+          - master
+      buildOnPullRequestClose: true
+      buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
+      
+  - name: deeps-gitRepo-4
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/gitRepo-project-4"
+      branches:
+        only:
+          - master
+      buildOnPullRequestClose: true
+      buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
+      
+  - name: deeps-gitRepo-5
+    type: gitRepo
+    integration: deepika-git
+    pointer:
+      sourceName: "deepikasl/gitRepo-project-5"
+      branches:
+        only:
+          - master
+      buildOnPullRequestClose: true
+      buildOnPullRequest: true
+      buildOnRelease: true
+      buildOnTagPush: true
+      
+  - name: deeps-ssh
+    type: integration
+    integration: deep_gh_ssh
+    
+  - name: deeps-params-1
+    type: params
+    version:
+      params:
+        FOO: foo
+  
+  - name: deeps-params-2
+    type: params
+    version:
+      params:
+        FOO: foo1
+  
+  - name: deeps-dockerOptions-1
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 255
+      portMappings:
+        - "80:80"
+  
+  - name: deeps-dockerOptions-2
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 512
+      portMappings:
+        - "80:80"
+  
+  - name: deeps-dockerOptions-3
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 512
+  
