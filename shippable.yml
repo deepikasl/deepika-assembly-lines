@@ -227,6 +227,166 @@ jobs:
       - IN: deeps-runSh-19
       - TASK:
         - script: echo "twenty runsh job"
+ 
+  - name: deeps-runSh-21
+    type: runSh
+    steps:
+      - IN: deeps-runSh-19
+      - IN: deeps-runSh-20
+      - TASK:
+        - script: echo "21st runsh job"
+  
+  - name: deeps-runSh-22
+    type: runSh
+    steps:
+      - IN: deeps-runSh-20
+      - IN: deeps-runSh-21
+      - TASK:
+        - script: echo "22nd runsh job"
+  
+  - name: deeps-runSh-23
+    type: runSh
+    steps:
+      - IN: deeps-runSh-21
+      - IN: deeps-runSh-22
+      - TASK:
+        - script: echo "23rd runsh job"
+  
+  - name: deeps-runSh-24
+    type: runSh
+    steps:
+      - IN: deeps-runSh-22
+      - IN: deeps-runSh-23
+      - TASK:
+        - script: echo "24th runsh job"
+  
+  - name: deeps-runSh-25
+    type: runSh
+    steps:
+      - IN: deeps-runSh-23
+      - IN: deeps-runSh-24
+      - TASK:
+        - script: echo "25th runsh job"
+  
+  - name: deeps-runSh-26
+    type: runSh
+    steps:
+      - IN: deeps-runSh-24
+      - IN: deeps-runSh-25
+      - TASK:
+        - script: echo "26th runsh job"
+        
+  - name: deeps-runSh-27
+    type: runSh
+    steps:
+      - IN: deeps-runSh-25
+      - IN: deeps-runSh-26
+      - TASK:
+        - script: echo "27th runsh job"
+  
+  - name: deeps-runSh-28
+    type: runSh
+    steps:
+      - IN: deeps-runSh-26
+      - IN: deeps-runSh-27
+      - TASK:
+        - script: echo "28th runsh job"
+  
+  - name: deeps-runSh-29
+    type: runSh
+    steps:
+      - IN: deeps-runSh-27
+      - IN: deeps-runSh-28
+      - TASK:
+        - script: echo "29th runsh job"
+  
+  - name: deeps-runSh-30
+    type: runSh
+    steps:
+      - IN: deeps-runSh-28
+      - IN: deeps-runSh-29
+      - TASK:
+        - script: echo "30th runsh job"
+  
+  - name: deeps-runSh-31
+    type: runSh
+    steps:
+      - IN: deeps-runSh-29
+      - IN: deeps-runSh-30
+      - TASK:
+        - script: echo "31st runsh job"
+  
+  - name: deeps-runSh-32
+    type: runSh
+    steps:
+      - IN: deeps-runSh-30
+      - IN: deeps-runSh-31
+      - TASK:
+        - script: echo "32nd runsh job"
+        
+  - name: deeps-runSh-33
+    type: runSh
+    steps:
+      - IN: deeps-runSh-31
+      - IN: deeps-runSh-32
+      - TASK:
+        - script: echo "33rd runsh job"
+        
+  - name: deeps-runSh-34
+    type: runSh
+    steps:
+      - IN: deeps-runSh-32
+      - IN: deeps-runSh-33
+      - TASK:
+        - script: echo "34th runsh job"
+        
+  - name: deeps-runSh-35
+    type: runSh
+    steps:
+      - IN: deeps-runSh-33
+      - IN: deeps-runSh-34
+      - TASK:
+        - script: echo "35th runsh job"
+        
+  - name: deeps-runSh-36
+    type: runSh
+    steps:
+      - IN: deeps-runSh-34
+      - IN: deeps-runSh-35
+      - TASK:
+        - script: echo "36th runsh job"
+  
+  - name: deeps-runSh-37
+    type: runSh
+    steps:
+      - IN: deeps-runSh-35
+      - IN: deeps-runSh-36
+      - TASK:
+        - script: echo "37th runsh job"
+        
+  - name: deeps-runSh-38
+    type: runSh
+    steps:
+      - IN: deeps-runSh-36
+      - IN: deeps-runSh-37
+      - TASK:
+        - script: echo "38th runsh job"
+        
+  - name: deeps-runSh-39
+    type: runSh
+    steps:
+      - IN: deeps-runSh-37
+      - IN: deeps-runSh-38
+      - TASK:
+        - script: echo "39th runsh job"
+  
+  - name: deeps-runSh-40
+    type: runSh
+    steps:
+      - IN: deeps-runSh-38
+      - IN: deeps-runSh-39
+      - TASK:
+        - script: echo "40th runsh job"
   
 resources:
   - name: deeps-image-1
