@@ -2,21 +2,21 @@ build:
   ci:
     - echo "deepika-assembly-lines"
     
- jobs:
+jobs:
   - name: deeps-manfst-1
     type: manifest
     steps:
       - IN: deeps-image-1
         pull: false
  
- - name: deeps-manfst-2
+  - name: deeps-manfst-2
     type: manifest
     steps:
       - IN: deeps-image-1
       - IN: deeps-image-2
         pull: false
  
- - name: deeps-runSh-1
+  - name: deeps-runSh-1
     type: runSh
     steps:
       - IN: deeps-manfst-1
@@ -228,7 +228,7 @@ build:
       - TASK:
         - script: echo "twenty runsh job"
   
- resources:
+resources:
   - name: deeps-image-1
     type: image
     integration: deepika-docker
