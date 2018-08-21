@@ -420,6 +420,14 @@ jobs:
       - TASK:
         - script: echo "44th runsh job"
   
+  - name: deeps-runSh-45
+    type: runSh
+    steps:
+      - IN: deeps-runSh-43
+      - IN: deeps-runSh-44
+      - TASK:
+        - script: echo "45th runsh job"
+  
 resources:
   - name: deeps-image-1
     type: image
