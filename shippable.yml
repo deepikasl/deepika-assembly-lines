@@ -388,6 +388,14 @@ jobs:
       - TASK:
         - script: echo "40th runsh job"
   
+  - name: deeps-runSh-41
+    type: runSh
+    steps:
+      - IN: deeps-runSh-36
+      - IN: deeps-runSh-40
+      - TASK:
+        - script: echo "41st runsh job"
+  
 resources:
   - name: deeps-image-1
     type: image
