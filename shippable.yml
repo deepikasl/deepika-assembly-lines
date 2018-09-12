@@ -23,6 +23,7 @@ jobs:
       - IN: deeps-manfst-2
       - TASK:
         - script: echo "first runsh job"
+        - script: echo "test"
   
   - name: deeps-manfst-3
     type: manifest
