@@ -22,6 +22,11 @@ jobs:
       - IN: deeps-manfst-1
       - IN: deeps-manfst-2
       - TASK:
+        runtime: 
+          options:
+            env:
+              - ENV1: foo
+              - ENV2: bar
         - script: echo "first runsh job"
         - script: echo "test"
   
