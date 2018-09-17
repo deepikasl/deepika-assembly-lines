@@ -22,6 +22,7 @@ jobs:
       - IN: deeps-manfst-1
       - IN: deeps-manfst-2
       - TASK:
+        name: task_1
         runtime: 
           options:
             env:
