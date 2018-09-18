@@ -35,7 +35,7 @@ jobs:
           runtime:
             options:
               env:
-                - ENV3: foo
+                - ENV1: foo
                 - ENV4: barc
           script:
             - echo "2nd task"
