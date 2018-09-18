@@ -35,6 +35,7 @@ jobs:
           runtime:
             options:
               env:
+                - ENV1: test
                 - ENV3: foo
                 - ENV4: barc
           script:
