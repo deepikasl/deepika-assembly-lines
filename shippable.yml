@@ -40,6 +40,14 @@ jobs:
                 - ENV4: barc
           script:
             - echo "2nd task"
+      - TASK:
+          name: task_3
+          runtime:
+            options:
+              env:
+                - ENV1: test-2
+          script:
+            - echo "3rd task"
   
   - name: deeps-manfst-3
     type: manifest
