@@ -52,14 +52,12 @@ jobs:
   - name: deeps-manfst-3
     type: manifest
     steps:
-      - IN: deeps-runSh-1
       - IN: deeps-image-3
         pull: false
   
   - name: deeps-manfst-4
     type: manifest
     steps:
-      - IN: deeps-runSh-1
       - IN: deeps-image-4
         pull: false
 
@@ -67,14 +65,12 @@ jobs:
     type: runSh
     steps:
       - IN: deeps-manfst-3
-      - IN: deeps-manfst-4
       - TASK:
         - script: echo "second runsh job"
   
   - name: deeps-runSh-3
     type: runSh
     steps:
-      - IN: deeps-runSh-1
       - IN: deeps-runSh-2
       - TASK:
         - script: echo "third runsh job"
@@ -157,7 +153,6 @@ jobs:
   - name: deeps-runSh-9
     type: runSh
     steps:
-      - IN: deeps-runSh-4
       - IN: deeps-gitRepo-1
       - TASK:
         - script: echo "ninth runsh job"
@@ -165,7 +160,6 @@ jobs:
   - name: deeps-runSh-10
     type: runSh
     steps:
-      - IN: deeps-runSh-5
       - IN: deeps-gitRepo-2
       - TASK:
         - script: echo "tenth runsh job"
@@ -173,7 +167,6 @@ jobs:
   - name: deeps-runSh-11
     type: runSh
     steps:
-      - IN: deeps-runSh-6
       - IN: deeps-gitRepo-3
       - TASK:
         - script: echo "eleventh runsh job"
@@ -181,7 +174,6 @@ jobs:
   - name: deeps-runSh-12
     type: runSh
     steps:
-      - IN: deeps-runSh-7
       - IN: deeps-gitRepo-4
       - TASK:
         - script: echo "twelfth runsh job"
@@ -189,7 +181,6 @@ jobs:
   - name: deeps-runSh-13
     type: runSh
     steps:
-      - IN: deeps-runSh-8
       - IN: deeps-gitRepo-5
       - TASK:
         - script: echo "thirteenth runsh job"
@@ -245,10 +236,6 @@ jobs:
   - name: deeps-runSh-20
     type: runSh
     steps:
-      - IN: deeps-runSh-15
-      - IN: deeps-runSh-16
-      - IN: deeps-runSh-17
-      - IN: deeps-runSh-18
       - IN: deeps-runSh-19
       - TASK:
         - script: echo "twenty runsh job"
@@ -328,7 +315,6 @@ jobs:
   - name: deeps-runSh-30
     type: runSh
     steps:
-      - IN: deeps-runSh-28
       - IN: deeps-runSh-29
       - TASK:
         - script: echo "30th runsh job"
@@ -336,7 +322,6 @@ jobs:
   - name: deeps-runSh-31
     type: runSh
     steps:
-      - IN: deeps-runSh-29
       - IN: deeps-runSh-30
       - TASK:
         - script: echo "31st runsh job"
@@ -360,7 +345,6 @@ jobs:
   - name: deeps-runSh-34
     type: runSh
     steps:
-      - IN: deeps-runSh-32
       - IN: deeps-runSh-33
       - TASK:
         - script: echo "34th runsh job"
@@ -376,7 +360,6 @@ jobs:
   - name: deeps-runSh-36
     type: runSh
     steps:
-      - IN: deeps-runSh-34
       - IN: deeps-runSh-35
       - TASK:
         - script: echo "36th runsh job"
