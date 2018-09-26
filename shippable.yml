@@ -36,7 +36,7 @@ jobs:
             options:
               env:
                 - ENV1: test
-                - ENV3: foo
+                - ENV3: env3
                 - ENV4: barc
           script:
             - echo "2nd task"
