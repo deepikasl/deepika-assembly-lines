@@ -197,7 +197,7 @@ jobs:
     type: runSh
     steps:
       - IN: deeps-runSh-10
-      - IN: deeps-params-2
+     # - IN: deeps-params-2
       - TASK:
         - script: echo "fifteenth runsh job"
         
@@ -591,11 +591,11 @@ resources:
       params:
         FOO: foo
   
-  - name: deeps-params-2
-    type: params
-    version:
-      params:
-        FOO: foo1
+  #- name: deeps-params-2
+   # type: params
+    #version:
+     # params:
+      #  FOO: foo1
   
   - name: deeps-dockerOptions-1
     type: dockerOptions
