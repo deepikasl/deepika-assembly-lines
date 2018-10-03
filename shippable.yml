@@ -189,7 +189,7 @@ jobs:
     type: runSh
     steps:
       - IN: deeps-runSh-9
-      - IN: deeps-params-1
+     # - IN: deeps-params-1
       - TASK:
         - script: echo "forteenth runsh job"
   
@@ -585,11 +585,11 @@ resources:
     type: integration
     integration: deep_gh_ssh
     
-  - name: deeps-params-1
-    type: params
-    version:
-      params:
-        FOO: foo
+  #- name: deeps-params-1
+   # type: params
+    #version:
+     # params:
+      #  FOO: foo
   
   #- name: deeps-params-2
    # type: params
